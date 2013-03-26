@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 1200 880" preserveAspectRatio="xMinYMin" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style type="text/css">
+    text a { text-decoration: underline; fill: blue;}
+    .mark line, .coord { stroke:black; stroke-width:1px;}
+    .mark text { text-anchor: middle;}
+    #y-axis .mark text { text-anchor: end; dominant-baseline: central;}
+    .yx line, .xy line, .xy ellipse, .xy path { stroke-dasharray:5,5;
+    stroke-width:1px;
+    stroke:#AAAAAA}
+    .el, .yx text, .xy text {
+      font-family: monospace;
+    }
+    .el { font-size: 3em; text-anchor:middle;}
+    .xy text { text-anchor:middle;}
+    .xy text tspan.keyword, .yx text tspan.keyword { font-weight:bold;}
+    .xy, .yx { fill: green;}
+    .el { fill: #099;}
+    line.small, path.small  { stroke-dasharray:1,1;}
+    .el-desc use, .el-desc .xy, .el-desc .yx { opacity: 0; transition: opacity 0.5s;}
+    .el-desc:hover use, .el-desc:hover .xy, .el-desc:hover .yx, .el-desc:focus use, .el-desc:focus .xy, .el-desc:focus .yx { opacity: 1; transition: opacity 0.5s;}
+    text.annotation, tspan.annotation { fill: #777777;}
+    text.annotation tspan, text tspan.annotation { font-weight:normal;}
+  </style>
+  <title>SVG Cheatsheet</title>
+  <desc>By Dominique Hazael-Massieux</desc>
+  <defs>
+    <marker id="arrowstart"
+	    viewBox="0 0 10 10" refX="0" refY="5" 
+	    markerUnits="strokeWidth"
+	    markerWidth="10" markerHeight="10"
+	    orient="auto" fill="#777777">
+      <path d="M 10 0 L 0 5 L 10 10 z" />
+    </marker>
+    <marker id="arrowend"
+	    viewBox="0 0 10 10" refX="10" refY="5" 
+	    markerUnits="strokeWidth"
+	    markerWidth="10" markerHeight="10"
+	    orient="auto" fill="#777777">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+    <g id="axis">
+      <g id="x-axis">
+	<line x1="0" y1="0" x2="0" y2="100%" class="coord"/>
+	<g class="mark">
+	  <line x1="0" y1="0" x2="0" y2="-0.4em"/>
+	  <text x="0" y="-0.5em">0</text>
+	</g>
+	<g class="mark">
+	  <line x1="50" y1="0" x2="50" y2="-0.4em"/>
+	  <text x="50" y="-0.5em">50</text>
+	</g>
+	<g class="mark">
+	  <line x1="100" y1="0" x2="100" y2="-0.4em"/>
+	  <text x="100" y="-0.5em">100</text>
+	</g>
+	<g class="mark">
+	  <line x1="200" y1="0" x2="200" y2="-0.4em"/>
+	  <text x="198" y="-0.5em">200</text>
+	</g>
+	<g class="mark">
+	  <line x1="300" y1="0" x2="300" y2="-0.4em"/>
+	  <text x="298" y="-0.5em">300</text>
+	</g>
+      </g>
+      <g id="y-axis">
+	<line x1="0" y1="0" x2="100%" y2="0" class="coord"/>
+	<g class="mark">
+	  <line x1="0" y1="0" x2="-0.4em" y2="0"/>
+	  <text x="-0.5em" y="0">0</text>
+	</g>
+	<g class="mark">
+	  <line x1="0" y1="100" x2="-0.4em" y2="100"/>
+	  <text x="-0.5em" y="100">100</text>
+	</g>
+	<g class="mark">
+	  <line x1="0" y1="200" x2="-0.4em" y2="200"/>
+	  <text x="-0.5em" y="200">200</text>
+	</g>
+	<g class="mark">
+	  <line x1="0" y1="300" x2="-0.4em" y2="300"/>
+	  <text x="-0.5em" y="300">300</text>
+	</g>	
+      </g>
+    </g>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%" fx="75%" fy="25%">
+      <stop stop-color="#CCCCCC" offset="0%"/>
+      <stop stop-color="#FFFFFF" offset="100%"/>
+    </radialGradient>
+  </defs>
+  <rect fill="url(#bg)" x="-50" y="-50" width="1200" height="800"/>
+  <a id="rect" class="el-desc" xlink:href="#rect">
+    <title>Rectangle</title>
+    <rect x="50" y="100" width="200" height="150" stroke='red' stroke-width='10' fill='transparent'/>
+    <text class="el" x="150" y="175">&lt;rect/&gt;</text>
+    <g class="attributes">
+      <title>Attributes of the rect element</title>
+    <g class="xy">
+      <rect x="50" y="100" width="200" height="150" stroke='white' stroke-width='1' fill='none'/>
+    </g>
+    <g class="xy">
+      <line x1="0" y1="100" x2="50" y2="100" marker-end="url(#arrowend)" />
+      <text x="25" y="115"><tspan class="keyword">x</tspan>="50"</text>
+    </g>
+    <g class="yx">
+      <line x1="50" y1="0" x2="50" y2="100" marker-end="url(#arrowend)" />
+      <text x="55" y="80"><tspan class="keyword">y</tspan>="100"</text>
+    </g>
+    <g class="xy">
+      <line x1="50" y1="255" x2="250" y2="255" marker-end="url(#arrowend)"  marker-start="url(#arrowstart)"/>
+      <text x="150" y="270"><tspan class="keyword">width</tspan>="200"</text>
+    </g>
+    <g class="yx">
+      <line x1="255" y1="100" x2="255" y2="250" marker-end="url(#arrowend)"  marker-start="url(#arrowstart)"/>
+      <text x="260" y="175"><tspan class="keyword">height</tspan>="150"</text>
+    </g>
+    <g class="xy">
+      <line class="small" x1="200" x2="200" y1="95" y2="105" />
+      <text x="200" y="90"><tspan class="keyword">stroke-width</tspan>="10"</text>
+      <text x="200" y="115"><tspan class="keyword">stroke</tspan>="red"</text>
+      <g class="xy">
+	<text x="50" y="225"><tspan class="keyword">fill</tspan>="none"</text>
+      </g>
+    </g>
+    </g>
+    <use xlink:href="#axis"/>
+  </a>
+  <a id="ellipse" class="el-desc" xlink:href="#ellipse">
+    <title>Ellipse</title>
+    <ellipse cx="400" cy="375" rx="100" ry="75" stroke="none" fill="#EEEE00"/>
+    <text class="el" x="400" y="480">&lt;ellipse/&gt;</text>
+    <g class="attributes">
+      <title>Attributes of the ellipse element</title>
+    <g class="xy">
+      <line x1="0" y1="375" x2="400" y2="375" marker-end="url(#arrowend)" />
+      <text x="270" y="390"><tspan class="keyword">cx</tspan>="400"</text>
+    </g>
+    <g class="yx">
+      <line x1="400" y1="0" x2="400" y2="375" marker-end="url(#arrowend)" />
+      <text x="405" y="295"><tspan class="keyword">cy</tspan>="375"</text>
+    </g>
+    <g class="xy">
+      <line x1="400" y1="375" x2="500" y2="375" marker-end="url(#arrowend)"  marker-start="url(#arrowstart)"/>
+      <text x="450" y="390"><tspan class="keyword">rx</tspan>="100"</text>
+    </g>
+    <g class="yx">
+      <line x1="400" y1="375" x2="400" y2="450" marker-end="url(#arrowend)"  marker-start="url(#arrowstart)"/>
+      <text x="405" y="410"><tspan class="keyword">ry</tspan>="75"</text>
+    </g>
+    <g class="yx">
+      <text x="450" y="325"><tspan class="keyword">fill</tspan>="#EEEE00"</text>
+    </g>
+    </g>
+    <use xlink:href="#axis"/>
+  </a>
+  <a id="line" class="el-desc" xlink:href="#line">
+    <title>Line</title>
+    <line x1="500" x2="600" y1="50" y2="150" stroke-width="3" stroke="orange"/>
+    <text class="el" x="640" y="100">&lt;line/&gt;</text>
+    <g class="attributes">
+      <title>Attributes of the ellipse element</title>
+    <g class="xy">
+      <line x1="0" y1="50" x2="500" y2="50" marker-end="url(#arrowend)" />
+      <text x="450" y="65"><tspan class="keyword">x1</tspan>="500"</text>
+    </g>
+    <g class="yx">
+      <line x1="500" y1="0" x2="500" y2="50" marker-end="url(#arrowend)" />
+      <text x="505" y="30"><tspan class="keyword">y1</tspan>="50"</text>
+    </g>
+    <g class="xy">
+      <line x1="0" y1="150" x2="600" y2="150" marker-end="url(#arrowend)" />
+      <text x="550" y="165"><tspan class="keyword">x2</tspan>="600"</text>
+    </g>
+    <g class="yx">
+      <line x1="600" y1="0" x2="600" y2="150" marker-end="url(#arrowend)" />
+      <text x="605" y="130"><tspan class="keyword">y2</tspan>="150"</text>
+    </g>
+    <g class="yx">
+      <text x="430" y="100"><tspan class="keyword">stroke</tspan>="orange"</text>
+    </g>
+    </g>
+    <use xlink:href="#axis"/>
+  </a>
+  <a id="polyline" class="el-desc" xlink:href="#polyline">
+    <title>Polyline</title>
+    <polyline points="600,200 650,300 700,250 800,300" stroke="#FF00FF" fill="transparent" stroke-width="3"/>
+    <text class="el" x="720" y="340">&lt;polyline/&gt;</text>
+    <g class="attributes">
+      <title>Attribute points of the polyline element</title>
+    <g class="xy">
+      <text x="600" y="200"><tspan class="keyword">points</tspan>="600,200…</text>
+      <text x="650" y="310">650,300</text>
+      <text x="700" y="250">700,250</text>
+      <text x="800" y="310">800,300"</text>
+    </g>
+    </g>
+    <use xlink:href="#axis"/>
+  </a>
+  <a id="polygon" class="el-desc" xlink:href="#polygon">
+    <title>Polygon</title>
+    <polygon points="400,200 430,170 460,170 490,200 460,230 430,230" stroke="#AA77FF" stroke-width="3" fill="transparent"/>
+    <text class="el" x="450" y="260">&lt;polygon/&gt;</text>
+    <g class="attributes">
+      <title>Attribute points of the polygone element</title>
+    <g class="xy">
+      <text x="400" y="200" style="text-anchor:end"><tspan class="keyword">points</tspan>="400,200…</text>
+      <text x="430" y="170" style="text-anchor:end">430,170</text>
+      <text x="460" y="170" style="text-anchor:start">460,170</text>
+      <text x="490" y="200" style="text-anchor:start">490,200</text>
+      <text x="470" y="230" style="text-anchor:start">460,230</text>
+      <text x="420" y="230" style="text-anchor:end">430,230"</text>
+    </g>
+    </g>
+    <use xlink:href="#axis"/>
+  </a>
+  <a id="path" class="el-desc" xlink:href="#path">
+    <title>Paths</title>
+    <text class="el" x="100" y="515">&lt;path/&gt;</text>
+    <g>
+      <title>Cubic Bezier curves</title>
+      <path d="M 100,475 c -120,-100 -50,-180 0,-130 c 50,-50 120,30 0,130"  stroke="#FF77AA" fill="transparent" stroke-width="5"/>
+      <g class="attributes">
+	<title>path element with d attribute describing cubic Bezier curves</title>
+      <g class="xy">
+      <circle cx="100" cy="475" r="2" fill="black"/>
+      <text x="90" y="475" style="text-anchor:end"><tspan class="keyword">d</tspan>="<tspan class="keyword">M</tspan>100,475 <tspan class="keyword">C</tspan></text>
+      <text class="annotation" x="20" y="485" style="text-anchor:start">Move</text>
+      <text class="annotation" x="82" y="485"  style="text-anchor:start">Cubic Bezier</text>
+      <circle cx="-20" cy="375" r="2" fill="black"/>
+      <line x1="100" y1="475" x2="-20" y2="375" marker-end="url(#arrowend)"/>
+      <text x="-20" y="375">-20,375</text>
+
+      <text class="annotation" x="-20" y="395" >Control<tspan dy="1.2em" x="-20">point #1</tspan></text>
+      <circle cx="50" cy="295" r="2" fill="black"/>
+      <circle cx="100" cy="345" r="2" fill="black"/>
+      <line x1="50" y1="295" x2="100" y2="345" marker-end="url(#arrowend)"/>
+      <text x="50" y="295">50,295</text>
+      <text class="annotation" x="50" y="315" >Control<tspan dy="1.2em" x="50">point #2</tspan></text>
+      <text x="100" y="360">100,345"</text>
+      <text class="annotation" x="100" y="370" >Destination</text>
+    </g>
+      </g>
+    </g>
+    <g>
+      <title>Arcs</title>
+      <path d="M 100 675 a 100 75 45 0 1 0,-150 L 100 675" fill="#CCCCCC"/>
+    <g class="xy">
+      <g class="attributes">
+	<title>path element with attribute d describing an arc and a line</title>
+	<circle cx="100" cy="675" r="2" fill="black"/>
+	<circle cx="100" cy="525" r="2" fill="black"/>
+      <text x="90" y="685" style="text-anchor:end"><tspan class="keyword">d</tspan>="<tspan class="keyword">M</tspan>100,675 <tspan class="keyword">A</tspan><tspan dy="1.2em" x="90">100</tspan><tspan dy="1.2em" x="90">75</tspan><tspan dy="1.2em" x="90">45</tspan><tspan dy="1.2em" x="90">0</tspan><tspan dy="1.2em" x="90">1</tspan><tspan dy="1.2em" x="90">100,525</tspan><tspan class="keyword" dy="1.2em" x="90">L</tspan><tspan  dy="1.2em" x="90">100,675"</tspan></text>
+      <text class="annotation" x="92" y="685"  style="text-anchor:start">Arc<tspan dy="1.2em" x="92">radius X</tspan><tspan dy="1.2em" x="92">radius Y</tspan><tspan dy="1.2em" x="92">Rotation axis x</tspan><tspan dy="1.2em" x="92">Small arc</tspan><tspan dy="1.2em" x="92">Clockwise</tspan><tspan dy="1.2em" x="92">Arc end</tspan><tspan dy="1.2em" x="92">Line to</tspan><tspan dy="1.2em" x="92">Line end</tspan></text>
+      <line x1="0" y1="612" x2="500" y2="612"/>
+      <path class="small" d="M 110 612 a 24 24 0 0 1 12.6 -20.4" fill="none"  marker-end="url(#arrowend)"/>
+      <text x="104" y="606">45°</text>
+      <g transform="rotate(45,107,657)">
+	<ellipse cx="100" cy="600" rx="100" ry="75" fill="transparent" />
+	<line x1="0" y1="600" x2="100" y2="600" marker-end="url(#arrowend)"/>
+	<text x="50" y="595">100<tspan dy="-1.2em" x="50" class="annotation">radius x</tspan></text>
+	<line x1="100" y1="675" x2="100" y2="600" marker-end="url(#arrowend)"/>
+	<text x="100" y="640" style="text-anchor:start">75<tspan dx="0.3em" class="annotation">radius y</tspan></text>
+      </g>
+      </g>
+    </g>
+    </g>
+    <use xlink:href="#axis"/>
+  </a>
+  <a id="text"  class="el-desc" xlink:href="#text">
+    <title>Text</title>
+    <text font-family="Helvetica" text-anchor="end" x="1000" y="500" font-size="4em" fill="#77AAFF">Hello World</text>
+    <text class="el" x="800" y="535">&lt;text/&gt;</text>
+    <g class="attributes">
+      <title>Attributes of the text element</title>
+    <g class="xy">
+      <line x1="0" y1="500" x2="1000" y2="500" marker-end="url(#arrowend)"/>
+      <text x="950" y="515"><tspan class="keyword">x</tspan>="1000"</text>
+      <line x1="1000" y1="0" x2="1000" y2="500" marker-end="url(#arrowend)"/>
+      <text x="1005" y="485" style="text-anchor:start"><tspan class="keyword">y</tspan>="500"</text>
+      <text x="1000" y="510" style="text-anchor:start"><tspan class="keyword">text-anchor</tspan>="end"</text>
+      <circle cx="1000" cy="500" r="2" fill="black"/>
+      <line x1="655" x2="655" y1="500" y2="452"  marker-end="url(#arrowend)"  marker-start="url(#arrowstart)"/>
+      <text style="text-anchor:end" x="652" y="476"><tspan class="keyword">font-size</tspan>="4em"</text>
+      <text x="877" y="450"><tspan class="keyword">font-family</tspan>="Helvetica"</text>
+    </g>
+    </g>
+    <use xlink:href="#axis"/>
+  </a>
+  <text style="text-anchor:end" font-size="2em" y="700" x="1200">SVG Cheatsheet, by <a xlink:href="http://www.w3.org/People/Dom/">Dominique Hazaël-Massieux</a></text>
+</svg>
